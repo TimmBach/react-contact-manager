@@ -15,4 +15,4 @@ This web app allows you to:
 
 You can view app in my index page in the below deploy link and by clicking on the Javascript todolist app button.
 
-- deploy link: https://timmbach.github.io/cil-internship-cohort-04/
+- deploy link: https://timmbach.github.io/cil-internship-tasks/
