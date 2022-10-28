@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-contact-manager/static/css/main.c59cc657.css",
+    "main.js": "/react-contact-manager/static/js/main.7072d229.js",
+    "static/media/help-question-svgrepo-com.svg": "/react-contact-manager/static/media/help-question-svgrepo-com.18a917c1ae47ed1fd3bb06011a2bd7c4.svg",
+    "static/media/note-add-svgrepo-com.svg": "/react-contact-manager/static/media/note-add-svgrepo-com.e320ad941a924300a214c9415c90b7b8.svg",
+    "index.html": "/react-contact-manager/index.html",
+    "static/media/home-svgrepo-com.svg": "/react-contact-manager/static/media/home-svgrepo-com.63018131c4c3cbac79fd8ca548db77dc.svg",
+    "main.c59cc657.css.map": "/react-contact-manager/static/css/main.c59cc657.css.map",
+    "main.7072d229.js.map": "/react-contact-manager/static/js/main.7072d229.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c59cc657.css",
+    "static/js/main.7072d229.js"
+  ]
+}
