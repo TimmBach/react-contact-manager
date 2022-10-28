@@ -10,7 +10,3 @@ This web app allows you to:
 - Delete contacts
 - Use react router to move between page routes
 - Contact Manager is responsive and can be viewed with a mobile phone
-
-You can view app in my index page in the below deploy link and by clicking on the React contact manager app button.
-
-- deploy link: https://timmbach.github.io/react-contact-manager/
