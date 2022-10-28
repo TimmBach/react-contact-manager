@@ -12,8 +12,10 @@ import { ContactsContext } from "./context/ContactsContext";
 // contacts url
 const contactsUrl = "https://jsonplaceholder.typicode.com/users";
 
+let lastContactID;
+
 const App = () => {
-  const [showDetails, setShowDetails] = useState({});
+  const [showDetails, setShowDetails] = useState(false);
 
   const [contactList, setContactList] = useState({
     loading: false,
@@ -33,13 +35,15 @@ const App = () => {
       async function fetchContactList() {
         const contacts = await fetch(contactsUrl).then((res) => res.json());
 
-        console.log(contacts[0]);
+        // console.log(contacts[0]);
         setContactList({
           ...contactList,
           loading: false,
           contacts: contacts,
         });
+        lastContactID = contacts[contacts.length - 1].id;
       }
+
       fetchContactList();
     } catch (error) {
       setContactList({
@@ -55,14 +59,21 @@ const App = () => {
       <Navbar />
 
       <ContactsContext.Provider
-        value={{ showDetails, setShowDetails, contactList, setContactList }}
+        value={{
+          showDetails,
+          setShowDetails,
+          contactList,
+          setContactList,
+          lastContactID,
+        }}
       >
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/add-contact" element={<AddContact />} />
+            <Route path="/contact/add" element={<AddContact />} />
+            <Route path="/contact/edit/:id" element={<EditContact />} />
             {/* <Route path="/add-contact" element={<EditContact />} /> */}
-            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </div>
       </ContactsContext.Provider>

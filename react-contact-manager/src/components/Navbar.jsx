@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <NavbarBs bg="dark" variant="dark" expand="md" className="mb-3 py-1">
+      <NavbarBs bg="dark" variant="dark" expand="sm" className="mb-3 py-1">
         <Container
           className="d-flex justify-content-between ms-auto me-auto w-100"
           style={{
@@ -26,54 +26,54 @@ const Navbar = () => {
           <Container>
             <NavbarBs.Collapse
               id="basic-navbar-nav"
-              style={{ marginLeft: "45vw", marginRight: "50vw" }}
+              style={{ marginLeft: "30vw", marginRight: "auto" }}
             >
               <Nav className="me-auto">
                 <Nav.Link to="/" as={NavLink} className="d-flex">
-                  <img
-                    src={homeIcon}
-                    alt=""
+                  <i
+                    className="fa fa-home"
                     style={{
                       filter:
                         "invert(56%) sepia(6%) saturate(242%) hue-rotate(163deg) brightness(89%) contrast(90%)",
                       width: "12px",
-                      marginBottom: "0px",
-                      marginRight: "3px",
+                      height: "8px",
+                      marginTop: "3px",
+                      marginRight: "10px",
                     }}
-                  />
+                  ></i>
                   Home
                 </Nav.Link>
-                <Nav.Link to="/add-contact" as={NavLink} className="d-flex">
-                  <img
-                    src={addIcon}
-                    alt=""
+                <Nav.Link to="/contact/add" as={NavLink} className="d-flex">
+                  <i
+                    className="fa-solid fa-square-plus"
                     style={{
                       filter:
-                        "invert(56%) sepia(6%) saturate(242%) hue-rotate(163deg) brightness(89%) contrast(90%)",
-                      width: "15px",
-                      marginBottom: "0px",
-                      marginRight: "3px",
+                        "invert(36%) sepia(6%) saturate(242%) hue-rotate(163deg) brightness(100%) contrast(70%)",
+                      width: "12px",
+                      height: "8px",
+                      marginTop: "3px",
+                      marginRight: "10px",
                     }}
-                  />
+                  ></i>
                   Add
                 </Nav.Link>
                 <Nav.Link
-                  to="/about-us"
+                  to="/about"
                   as={NavLink}
                   className="d-flex"
                   //   style={{ marginRight: "40vw" }}
                 >
-                  <img
-                    src={aboutIcon}
-                    alt=""
+                  <i
+                    className="fa-regular fa-circle-question"
                     style={{
                       filter:
                         "invert(56%) sepia(6%) saturate(242%) hue-rotate(163deg) brightness(89%) contrast(90%)",
-                      width: "14px",
-                      marginBottom: "0px",
-                      marginRight: "3px",
+                      width: "12px",
+                      height: "8px",
+                      marginTop: "3px",
+                      marginRight: "10px",
                     }}
-                  />
+                  ></i>
                   About
                 </Nav.Link>
               </Nav>

@@ -1,52 +1,94 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ContactsContext } from "../context/ContactsContext";
 
 const EditContact = () => {
+  const { contactList, setContactList } = useContext(ContactsContext);
+  let { loading, contacts, errorMessage } = contactList;
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [id, setId] = useState(null);
+
+  let history = useNavigate();
+  useEffect(() => {
+    setId(localStorage.getItem("Id"));
+    setName(localStorage.getItem("Name"));
+    setEmail(localStorage.getItem("Email"));
+    setPhone(localStorage.getItem("Phone"));
+  }, []);
+  console.log(id);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let index = id - 1;
+
+    let currentContact = contacts[index];
+
+    console.log(currentContact);
+    currentContact.name = name;
+    currentContact.email = email;
+    currentContact.phone = phone;
+
+    history("/");
+  };
+
   return (
     <>
-      <div class="container">
+      <div className="container">
         <div
-          class="card bg-light mb-3 me-auto ms-auto "
+          className="card bg-light mb-3 me-auto ms-auto "
           style={{ maxWidth: "1140px" }}
         >
-          <div class="card-header">
+          <div className="card-header">
             <b>Add Contact</b>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <form>
-              <div class="form-group">
-                <label for="name">Name</label>
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
                 <input
-                  class="form-control form-control-lg mt-1"
+                  className="form-control form-control-lg mt-1"
                   type="text"
                   placeholder="Enter your name..."
+                  required
+                  value={name}
                   name="name"
-                  value=""
+                  onChange={(e) => setName(e.target.value)}
                 />
+                <div className="invalid-feedback">Name is required..</div>
               </div>
-              <div class="form-group mt-2">
-                <label for="email">Email</label>
+              <div className="form-group mt-2">
+                <label htmlFor="email">Email</label>
                 <input
-                  class="form-control form-control-lg mt-1"
+                  className="form-control form-control-lg mt-1"
                   type="email"
                   placeholder="Enter your email..."
+                  required
+                  value={email}
                   name="email"
-                  value=""
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div class="form-group mt-2">
-                <label for="phone">Phone</label>
+              <div className="form-group mt-2">
+                <label htmlFor="phone">Phone</label>
                 <input
-                  class="form-control form-control-lg mt-1"
+                  className="form-control form-control-lg mt-1"
                   type="text"
                   placeholder="Enter your phone..."
+                  required
+                  value={phone}
                   name="phone"
-                  value=""
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
               <input
                 type="submit"
                 value="Update"
-                class="btn btn-block btn-dark w-100 mt-3"
+                className="btn btn-block btn-dark w-100 mt-3"
+                onClick={(e) => handleSubmit(e)}
               />
             </form>
           </div>
