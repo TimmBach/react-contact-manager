@@ -19,7 +19,6 @@
               placeholder="Enter your name..."
               required
             />
-            onChange={(e) => setName(e.target.value)}
           </div>
           <div className="form-group mt-2">
             <label htmlFor="email">Email</label>
@@ -32,7 +31,6 @@
               v-model="email"
               id="email"
             />
-            onChange={(e) => setEmail(e.target.value)}
           </div>
           <div className="form-group mt-2">
             <label htmlFor="phone">Phone</label>
@@ -44,10 +42,8 @@
               name="phone"
               v-model="phone"
             />
-            onChange={(e) => setPhone(e.target.value)}
           </div>
           <input type="submit" className="btn btn-block btn-dark w-100 mt-3" />
-          onClick={(e) => handleSubmit(e)}
         </form>
       </div>
     </div>
@@ -55,43 +51,28 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "AddContactView",
   data() {
     return {
-      id: "",
-      name: "",
-      email: "",
-      phone: "",
+      id: null,
+      name: this.name,
+      email: this.email,
+      phone: this.phone,
     };
   },
   methods: {
+    ...mapActions(["addContact"]),
     onSubmit(e) {
       e.preventDefault();
+      this.addContact(this.id, this.name, this.email, this.phone);
 
-      if (!this.name) {
-        alert("Please add a contact");
-        return;
-      }
+      this.$router.push("/");
 
-      const newContact = {
-        id: Math.floor(Math.random() * 100000),
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-      };
-
-      this.$emit(("add-contact", newContact));
-
-      this.id = "";
-      this.name = "";
-      this.email = "";
-      this.phone = "";
+      console.log(this.name);
     },
   },
-  //   props: {
-  //     contactIDs: Array,
-  //   },
 };
 </script>
 

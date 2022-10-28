@@ -26,7 +26,10 @@
             justifyContent: 'center',
           }"
         >
-          <router-link className="nav-link float-right" to="/contact/edit/1">
+          <router-link
+            className="nav-link float-right"
+            to="/contact/edit/{{contact.id}}"
+          >
             <i
               class="fa-solid fa-pen-to-square"
               :style="{ cursor: 'pointer' }"

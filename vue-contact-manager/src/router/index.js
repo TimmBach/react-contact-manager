@@ -16,7 +16,7 @@ const routes = [
     component: AddContactView,
   },
   {
-    path: "/contact/edit/:contactId",
+    path: "/contact/edit/:id",
     name: "EditContact",
     component: EditContactView,
   },

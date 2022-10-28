@@ -31,7 +31,7 @@ export default {
   created: async function () {
     try {
       this.loading = true;
-      const response = await await fetch(
+      const response = await fetch(
         "https://jsonplaceholder.typicode.com/users"
       ).then((res) => res.json());
       this.contacts = response;

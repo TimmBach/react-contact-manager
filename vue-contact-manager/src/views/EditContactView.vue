@@ -8,7 +8,7 @@
         <b>Add Contact</b>
       </div>
       <div className="card-body">
-        <form>
+        <form @submit="onSubmit">
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -19,7 +19,6 @@
               value="{{name}}"
               name="name"
             />
-            onChange={(e) => setName(e.target.value)}
             <div className="invalid-feedback">Name is required..</div>
           </div>
           <div className="form-group mt-2">
@@ -32,7 +31,6 @@
               value="{{email}}"
               name="email"
             />
-            onChange={(e) => setEmail(e.target.value)}
           </div>
           <div className="form-group mt-2">
             <label htmlFor="phone">Phone</label>
@@ -44,14 +42,12 @@
               :value="{ phone }"
               name="phone"
             />
-            onChange={(e) => setPhone(e.target.value)}
           </div>
           <input
             type="submit"
             value="Update"
             className="btn btn-block btn-dark w-100 mt-3"
           />
-          onClick={(e) => handleSubmit(e)}
         </form>
       </div>
     </div>
@@ -68,6 +64,12 @@ export default {
       email: localStorage.getItem("Email"),
       phone: localStorage.getItem("Phone"),
     };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      this.$router.push({ name: "Home" });
+    },
   },
 };
 </script>
